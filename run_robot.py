@@ -71,9 +71,9 @@ if __name__ == "__main__":
     save_log('机器人开始启动')
     # 目前只支持OKEX交易所，后续将支持火币，币安
     # 请确保对应的帐户有足够的资金或及时充值划转资金，
-    api_key = ''  # OKEX交易所的api
-    secret_key = ''  # OKEX交易所的secret
-    passphrase = ''  # OKEX交易所的passphrase
+    api_key = ''  # 请填写您的OKEX交易所的api
+    secret_key = ''  # 请填写您的OKEX交易所的secret
+    passphrase = ''  # 请填写您的OKEX交易所的passphrase
     symbollist = ["EOS-USD-SWAP","EOS-USD-200925"]  # 交易标的
     #symbol = "EOS-USD-SWAP" # 交易标的
     periods = 300  # 这个是策略要用到的时间周期，以那个周期的K线
