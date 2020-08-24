@@ -5,7 +5,9 @@
 # 说明
 
 ##API的权限只需要有交易权限就够了，不要开提币权限！
+
 ##API的权限只需要有交易权限就够了，不要开提币权限！
+
 ##API的权限只需要有交易权限就够了，不要开提币权限！
 
 本项目封装完整的交易处理逻辑，策略处理逻辑。提供自定义使用自己的策略计算交易信号及止盈止损处理。
@@ -35,7 +37,7 @@
 建议用centos运行，可以使用supervisor保持机器人运行，当然windows直接python run_robot.py也可以
     
 supervisor参考配置如下:
-"""
+‘’‘ 
 [program:runsr]
 environment =PYTHONPATH=/var/games/szauto/
 directory = /var/games/szauto/
@@ -45,7 +47,9 @@ autorestart=true
 user = root
 redirect_stderr = true
 stdout_logfile = /var/log/runsr.log
-"""
+
+'''
+
     
 # 更新日志  2020-08-24 (开源协议为MIT)
 
