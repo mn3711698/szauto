@@ -35,9 +35,19 @@
 同时运行多个交易标的处理，最好是多核心cpu,如果是1核心的云服务器，没办法同时处理的,执行完一个到一个。
 
 建议用centos运行，可以使用supervisor保持机器人运行，当然windows直接python run_robot.py也可以
-    
+
+安装相关库
+```python
+pip install requests
+pip install websockets==6.0
+pip install gevent
+pip install pandas
+
+```
+也可以在szauto目前下执行 pip3 install -r requirements.txt 或 pip install -r requirements.txt
 supervisor参考配置如下:
-‘’‘ 
+
+```python
 [program:runsr]
 environment =PYTHONPATH=/var/games/szauto/
 directory = /var/games/szauto/
@@ -47,9 +57,7 @@ autorestart=true
 user = root
 redirect_stderr = true
 stdout_logfile = /var/log/runsr.log
-
-'''
-
+```
     
 # 更新日志  2020-08-24 (开源协议为MIT)
 
