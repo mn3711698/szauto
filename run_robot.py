@@ -76,7 +76,7 @@ if __name__ == "__main__":
     passphrase = ''  # 请填写您的OKEX交易所的passphrase
     symbollist = ["EOS-USD-SWAP","EOS-USD-200925"]  # 交易标的
     #symbol = "EOS-USD-SWAP" # 交易标的
-    periods = 300  # 这个是策略要用到的时间周期，以那个周期的K线
+    periods = 300  # 这个是策略要用到的时间周期，以那个周期的K线计算策略交易信号，建议不要修改
     deal_num = 1  # 这个是每次交易多少张
 
     stop_pnl = 1  # 止盈处理类型 可选值说明：0无，1“获利止盈”，2:开仓比止盈
