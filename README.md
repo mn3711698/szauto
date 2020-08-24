@@ -44,7 +44,9 @@ pip install gevent
 pip install pandas
 
 ```
-也可以在szauto目前下执行 pip3 install -r requirements.txt 或 pip install -r requirements.txt
+也可以在szauto目前下执行 
+pip3 install -r requirements.txt 或 pip install -r requirements.txt
+
 supervisor参考配置如下:
 
 ```python
