@@ -26,7 +26,27 @@
 
 如需源码请联系下方QQ,源码不会提供策略部分。
 
+本项目写死了运行路径，windows在d:/webpy/www/szauto,Linux在/var/games/szauto/。
 
+不是上边的路径无法运行。
+
+同时运行多个交易标的处理，最好是多核心cpu,如果是1核心的云服务器，没办法同时处理的,执行完一个到一个。
+
+建议用centos运行，可以使用supervisor保持机器人运行，当然windows直接python run_robot.py也可以
+    
+supervisor参考配置如下:
+"""
+[program:runsr]
+environment =PYTHONPATH=/var/games/szauto/
+directory = /var/games/szauto/
+command = /usr/bin/python3 run_robot.py
+autostart = true
+autorestart=true
+user = root
+redirect_stderr = true
+stdout_logfile = /var/log/runsr.log
+"""
+    
 # 更新日志  2020-08-24 (开源协议为MIT)
 
 
