@@ -45,9 +45,11 @@ def Stop_loss_now(stop_kx,kx_num,pt):#止损处理
     # 返回值 11,-11   当需要平多返回11，当需要平空返回-11,其他值不处理
     longnum, longcost, longpnl, shortnum, shortcost, shortpnl, last = pt
     # 可选值说明 0:由策略自动处理；1:“亏损止损”就是当亏损大于下方填写的“止损量”时在无策略信号下就平仓;
-    # 2“开仓比止损”就是当“开仓比”大于下方填写的“止损量”时在无策略信号下就平仓，
+    # 2:“开仓比止损”就是当“开仓比”大于下方填写的“止损量”时在无策略信号下就平仓，
     # 多单：“最新价”比“开仓价”小，“开仓比”=("开仓价"-“最新价”)/"开仓价"
     # 空单：“最新价”比“开仓价”大，“开仓比”=(“最新价”-"开仓价")/"开仓价"
+    # 3:“现价止损”就是多单： “现价”<"开仓价"X（1-"止损量"）,空单：“现价”>"开仓价"X（1+"止损量"）
+    # 4:“开仓价止损”就是多单： “现价” < "开仓价" - "止损量", 空单：“现价” > "开仓价" + "止损量"
     if stop_kx==0:
         return ''
     elif stop_kx==1:
@@ -59,6 +61,16 @@ def Stop_loss_now(stop_kx,kx_num,pt):#止损处理
         if longnum > 0 and (longcost-last) / longcost > kx_num:  # 平多
             return 11
         elif shortnum > 0 and (last-shortcost) / shortcost > kx_num:  # 平空
+            return -11
+    elif stop_kx==3:
+        if longnum > 0 and last < longcost*(1-kx_num):  # 平多
+            return 11
+        elif shortnum > 0 and last > shortcost*(1+kx_num):  # 平空
+            return -11
+    elif stop_kx==4:
+        if longnum > 0 and last<(longcost-kx_num):  # 平多
+            return 11
+        elif shortnum > 0 and last>(shortcost+kx_num):  # 平空
             return -11
 
     return ''
